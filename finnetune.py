@@ -125,11 +125,11 @@ model.save_pretrained(lora_dir)
 #     --peft_model_path="/home/jhu/dev/models/llama2-7b-journal-finetune/checkpoint-500" \
 #     --output_dir="/home/jhu/dev/models/llama2-7b-chat-merged"
 
-# python convert-hf-to-gguf.py \
+# python /data/repos/llama.cpp/convert-hf-to-gguf.py \
     # /data/models/llama3_lora/merged/ \
     # --outfile /data/models/llama3_lora/merged/llama3_ft_01.gguf
 
-# ./quantize \
+# /data/repos/llama.cpp/quantize \
     # /data/models/llama3_lora/merged/llama3_ft_01.gguf \
     # /data/models/llama3_lora/merged/llama3_ft_Q4_K_M.gguf \
     # Q4_K_M
