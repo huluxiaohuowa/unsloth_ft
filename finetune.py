@@ -116,3 +116,6 @@ def main():
     print(f"Saving lora to {lora_dir}")
     model.to(torch.bfloat16)
     model.save_pretrained(lora_dir) 
+
+if __name__ == "__main__" :
+    main()
