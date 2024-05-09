@@ -15,6 +15,7 @@ def get_args():
     parser.add_argument("--max_steps", type=int, default=-1)
     # parser.add_argument("--llamacpp_dir", type=str, default="/data/repos/llama.cpp")
     parser.add_argument("--device", type=str, default="cpu")
+    parser.add_argument("--merge", type=bool, default=True)
 
     return parser.parse_args()
 
@@ -23,10 +24,10 @@ def main():
 
     model_init = args.base_model_dir
     lora_dir = args.lora_dir
-    # merged_dir = os.path.join(
-    #     lora_dir,
-    #     "merged"
-    # )
+    merged_dir = os.path.join(
+        lora_dir,
+        "merged"
+    )
     dataset_dir = args.dataset_dir # "/data/datasets/ruozhiba-llama3"
     tmp_out = os.path.join(
         lora_dir,
@@ -116,6 +117,14 @@ def main():
     print(f"Saving lora to {lora_dir}")
     model.to(torch.bfloat16)
     model.save_pretrained(lora_dir) 
+
+    # if args.merge:
+    #     model.to(torch.device("cpu"))
+    #     model.save_pretrained_merged(
+    #         merged_dir,
+    #         tokenizer,
+    #         save_method="merged_16bit"
+    #     )
 
 if __name__ == "__main__" :
     main()
