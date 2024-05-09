@@ -1,6 +1,6 @@
 # Use unsloth to train llama3 and quantize the model.
 
-## Fintune
+## Finetune
 ```bash
 python finetune.py \
     --base_model_dir /data/models/llama-3-8b-instruct \
