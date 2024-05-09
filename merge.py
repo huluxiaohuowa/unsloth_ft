@@ -9,7 +9,7 @@ import torch
 import os
 from peft import PeftModel
 
-base_model_path = "/data/models/llama-3-8b-instruct/"
+base_model_dir = "/data/models/llama-3-8b-instruct/"
 lora_dir = "/data/models/llama3_lora3"
 merged_dir = os.path.join(
     lora_dir,
@@ -17,7 +17,7 @@ merged_dir = os.path.join(
 )
 
 base_model = AutoModelForCausalLM.from_pretrained(
-    base_model_path,
+    base_model_dir,
     return_dict=True,
     torch_dtype=torch.float16,
     device_map="cpu"
@@ -32,7 +32,7 @@ model = PeftModel.from_pretrained(
 model = model.merge_and_unload()
 
 tokenizer = AutoTokenizer.from_pretrained(
-    base_model_path,
+    base_model_dir,
     device_map="cpu"
 )
 
