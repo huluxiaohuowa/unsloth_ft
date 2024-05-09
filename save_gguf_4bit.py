@@ -1,6 +1,4 @@
-import os
 from unsloth import FastLanguageModel
-import torch
 from transformers import TextStreamer
 
 if True:
