@@ -12,7 +12,7 @@ def get_args():
     parser.add_argument("--lora_dir", type=str)
     parser.add_argument("--dataset_dir", type=str)
     parser.add_argument("--num_train_epochs", type=int, default=3)
-    parser.add_argument("--max_steps", type=int, default=None)
+    parser.add_argument("--max_steps", type=int, default=-1)
     # parser.add_argument("--llamacpp_dir", type=str, default="/data/repos/llama.cpp")
     parser.add_argument("--device", type=str, default="cpu")
 
